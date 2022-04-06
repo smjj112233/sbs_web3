@@ -1,0 +1,85 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.wrap{
+    width: 100%; height: 800px;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 80px;
+    background-color: cornflowerblue;
+    position: relative;
+    z-index: 10;
+}
+
+nav {
+    width: 800px;
+}
+nav > ul{
+    display: flex;
+}
+
+nav > ul > li{
+    padding: 20px;
+    width: 160px;
+    height: 80px;
+    line-height: 40px;
+    text-align: center;
+    background-color: cornflowerblue;
+    /* position: relative;  이거 제거해서 헤더를 기준으로 서브메뉴가 위치됨*/
+    cursor: pointer;
+}
+
+nav > ul > li > a{
+    color: white;
+}
+
+/* .logo img {height: 100%;} */
+
+header img {height: 100%;}
+
+
+.submenu{
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 0;
+    background-color: #eee;
+    transition: all 0.4s;
+    z-index: -1;
+}
+
+/* 서브메뉴 활성화 */
+.submenu.active{ /*서브메뉴 클래스도 갖고 있고, 액티브도 갖고있음*/
+    height: 400px; /*원래 0에서 400으로 높이 조절돼서 슬라이드됨*/
+    /* top: 100%; */
+    z-index: 10;/*위 -1이랑 이거 넣어서 전환할땐 슬라이드로 안 내려옴*/
+}
+
+header.active .submenu{
+    height: 400px;
+}
+
+.mainmenu:nth-of-type(1) .submenu {background-color: royalblue;}
+.mainmenu:nth-of-type(2) .submenu {background-color: pink;}
+.mainmenu:nth-of-type(3) .submenu {background-color: lightgreen;}
+.mainmenu:nth-of-type(4) .submenu {background-color: lightblue;}
